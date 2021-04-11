@@ -1,3 +1,7 @@
+package utils;
+
+import models.ListNode;
+
 /**
  * @author lvchaoxian
  * @date 2021/4/10 3:38 下午
