@@ -37,8 +37,27 @@ public class Solution3 {
         return ans;
     }
 
+    public static int lengthOfLongestSubstring2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int ans = 1;
+        int[] record = new int[256];
+        int left = 0, right = 0;
+        while (left < s.length()) {
+            if (right < s.length() && record[s.charAt(right)] == 0) {
+                ans = Math.max(ans, right - left + 1);
+                record[s.charAt(right)] = 1;
+                right ++;
+            } else {
+                record[s.charAt(left ++)] = 0;
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-        String s = "aabaab!bb";
-        System.out.println(lengthOfLongestSubstring("bbbb"));
+        String s = "bbbb";
+        System.out.println(lengthOfLongestSubstring2(s));
     }
 }
